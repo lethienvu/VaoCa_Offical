@@ -1,0 +1,2815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkFlow Pro - Modern Mobile HRM Solution | Employee Management Made Simple</title>
+    <meta name="description"
+        content="Streamline your workforce management with WorkFlow Pro's mobile-first HRM platform. Employee profiles, attendance tracking, payroll management, and GPS integration in one powerful solution.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<style>
+    /* CSS Custom Properties (Design System) */
+    :root {
+        /* Brand Colors */
+        --primary-color: #004c39;
+        --secondary-color: #1d9936;
+        --accent-color: #00b56e;
+
+        /* Supporting Colors */
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+
+        /* Semantic Colors */
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+        --error-color: #ef4444;
+        --info-color: #3b82f6;
+
+        /* Typography */
+        --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        --font-size-xs: 0.75rem;
+        --font-size-sm: 0.875rem;
+        --font-size-base: 1rem;
+        --font-size-lg: 1.125rem;
+        --font-size-xl: 1.25rem;
+        --font-size-2xl: 1.5rem;
+        --font-size-3xl: 1.875rem;
+        --font-size-4xl: 2.25rem;
+        --font-size-5xl: 3rem;
+
+        /* Spacing */
+        --spacing-xs: 0.25rem;
+        --spacing-sm: 0.5rem;
+        --spacing-md: 1rem;
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2rem;
+        --spacing-2xl: 3rem;
+        --spacing-3xl: 4rem;
+
+        /* Border Radius */
+        --radius-sm: 0.25rem;
+        --radius-md: 0.5rem;
+        --radius-lg: 0.75rem;
+        --radius-xl: 1rem;
+        --radius-2xl: 1.5rem;
+
+        /* Shadows */
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+        /* Breakpoints */
+        --breakpoint-sm: 640px;
+        --breakpoint-md: 768px;
+        --breakpoint-lg: 1024px;
+        --breakpoint-xl: 1280px;
+        --breakpoint-2xl: 1536px;
+    }
+
+    /* Reset and Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: var(--font-family);
+        font-size: var(--font-size-base);
+        line-height: 1.6;
+        color: var(--gray-900);
+        background-color: #ffffff;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-lg);
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 0 var(--spacing-md);
+        }
+    }
+
+    /* Typography */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 600;
+        line-height: 1.2;
+        color: var(--gray-900);
+    }
+
+    h1 {
+        font-size: var(--font-size-4xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-3xl);
+    }
+
+    h3 {
+        font-size: var(--font-size-2xl);
+    }
+
+    h4 {
+        font-size: var(--font-size-xl);
+    }
+
+    h5 {
+        font-size: var(--font-size-lg);
+    }
+
+    h6 {
+        font-size: var(--font-size-base);
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: var(--font-size-3xl);
+        }
+
+        h2 {
+            font-size: var(--font-size-2xl);
+        }
+
+        h3 {
+            font-size: var(--font-size-xl);
+        }
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+        text-decoration: none;
+        border: none;
+        border-radius: var(--radius-lg);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+    }
+
+    .btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: #003d2e;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+        background-color: var(--secondary-color);
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background-color: #17822e;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+    }
+
+    .btn-outline:hover {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .btn-large {
+        padding: var(--spacing-lg) var(--spacing-xl);
+        font-size: var(--font-size-base);
+    }
+
+    .btn-full {
+        width: 100%;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+        .btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: var(--font-size-xs);
+        }
+
+        .btn-large {
+            padding: var(--spacing-md) var(--spacing-lg);
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    /* Navigation */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--gray-200);
+        z-index: 1000;
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-lg);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        font-size: var(--font-size-xl);
+        font-weight: 700;
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .logo-icon {
+        font-size: var(--font-size-2xl);
+    }
+
+    .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xl);
+    }
+
+    .nav-link {
+        color: var(--gray-700);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+        color: var(--primary-color);
+    }
+
+    .nav-cta {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+
+    .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+    }
+
+    .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: var(--gray-700);
+        transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+        .nav-container {
+            padding: 0 var(--spacing-md);
+        }
+
+        .nav-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            flex-direction: column;
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-toggle {
+            display: flex;
+        }
+
+        .nav-cta {
+            flex-direction: column;
+            width: 100%;
+            margin-top: var(--spacing-lg);
+        }
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 120px 0 var(--spacing-3xl);
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-lg);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-3xl);
+        align-items: center;
+    }
+
+    .hero-content {
+        z-index: 2;
+    }
+
+    .hero-badge {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .badge {
+        display: inline-block;
+        padding: var(--spacing-sm) var(--spacing-lg);
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: var(--radius-2xl);
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+    }
+
+    .hero-title {
+        font-size: var(--font-size-5xl);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .gradient-text {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-description {
+        font-size: var(--font-size-lg);
+        color: var(--gray-600);
+        margin-bottom: var(--spacing-2xl);
+        max-width: 500px;
+    }
+
+    .hero-ctas {
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .cta-primary {
+        display: flex;
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .cta-segments {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .segment-cta {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+
+    .segment-label {
+        font-size: var(--font-size-sm);
+        color: var(--gray-600);
+        font-weight: 500;
+    }
+
+    .link-cta {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: var(--font-size-sm);
+    }
+
+    .link-cta:hover {
+        text-decoration: underline;
+    }
+
+    .hero-trust {
+        border-top: 1px solid var(--gray-200);
+        padding-top: var(--spacing-lg);
+    }
+
+    .trust-stats {
+        display: flex;
+        gap: var(--spacing-2xl);
+    }
+
+    .stat {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stat-number {
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    .stat-label {
+        font-size: var(--font-size-sm);
+        color: var(--gray-600);
+    }
+
+    /* Hero Visual */
+    .hero-visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .phone-mockup {
+        position: relative;
+        z-index: 2;
+    }
+
+    .phone-frame {
+        width: 280px;
+        height: 560px;
+        background: linear-gradient(145deg, #2d3748, #1a202c);
+        border-radius: 40px;
+        padding: 8px;
+        box-shadow: var(--shadow-xl);
+    }
+
+    .phone-screen {
+        width: 100%;
+        height: 100%;
+        background: white;
+        border-radius: 32px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .app-interface {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .status-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px 8px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .indicators {
+        display: flex;
+        gap: 4px;
+    }
+
+    .signal,
+    .wifi,
+    .battery {
+        width: 18px;
+        height: 12px;
+        background-color: var(--gray-900);
+        border-radius: 2px;
+    }
+
+    .app-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px 20px;
+    }
+
+    .app-nav h3 {
+        font-size: 24px;
+        color: var(--primary-color);
+    }
+
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-radius: 50%;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        padding: 0 20px;
+    }
+
+    .action-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 20px;
+        background-color: var(--gray-50);
+        border-radius: 16px;
+        transition: all 0.2s ease;
+    }
+
+    .action-item.active {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .action-item i {
+        width: 24px;
+        height: 24px;
+    }
+
+    .floating-cards {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+    }
+
+    .feature-card {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md) var(--spacing-lg);
+        background: white;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .card-1 {
+        top: 10%;
+        right: -20px;
+        animation-delay: 0s;
+    }
+
+    .card-2 {
+        top: 50%;
+        left: -30px;
+        animation-delay: 1s;
+    }
+
+    .card-3 {
+        bottom: 20%;
+        right: -10px;
+        animation-delay: 2s;
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    /* Mobile Responsive Hero */
+    @media (max-width: 768px) {
+        .hero {
+            padding: 100px 0 var(--spacing-2xl);
+        }
+
+        .hero-container {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-2xl);
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: var(--font-size-3xl);
+        }
+
+        .hero-description {
+            font-size: var(--font-size-base);
+            max-width: none;
+        }
+
+        .cta-primary {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .trust-stats {
+            justify-content: center;
+            gap: var(--spacing-lg);
+        }
+
+        .phone-frame {
+            width: 240px;
+            height: 480px;
+        }
+
+        .floating-cards {
+            display: none;
+        }
+    }
+
+    /* Social Proof Section */
+    .social-proof {
+        padding: var(--spacing-2xl) 0;
+        background-color: var(--gray-50);
+    }
+
+    .proof-text {
+        text-align: center;
+        color: var(--gray-600);
+        margin-bottom: var(--spacing-xl);
+        font-size: var(--font-size-sm);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .company-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-3xl);
+        flex-wrap: wrap;
+    }
+
+    .logo-item {
+        font-size: var(--font-size-lg);
+        font-weight: 600;
+        color: var(--gray-400);
+        opacity: 0.7;
+        transition: opacity 0.2s ease;
+    }
+
+    .logo-item:hover {
+        opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+        .company-logos {
+            gap: var(--spacing-lg);
+        }
+
+        .logo-item {
+            font-size: var(--font-size-base);
+        }
+    }
+
+    /* Segment Navigation */
+    .segment-nav {
+        padding: var(--spacing-3xl) 0;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .segment-tabs {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-3xl);
+        flex-wrap: wrap;
+    }
+
+    .tab-btn {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md) var(--spacing-lg);
+        background-color: var(--gray-100);
+        color: var(--gray-600);
+        border: none;
+        border-radius: var(--radius-lg);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-weight: 500;
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .tab-content {
+        display: none;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-3xl);
+        align-items: center;
+    }
+
+    .content-text h3 {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .content-text p {
+        color: var(--gray-600);
+        margin-bottom: var(--spacing-xl);
+        font-size: var(--font-size-lg);
+    }
+
+    .feature-list {
+        list-style: none;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .feature-list li {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+        color: var(--gray-700);
+    }
+
+    .feature-list i {
+        color: var(--secondary-color);
+        width: 20px;
+        height: 20px;
+    }
+
+    .cta-group {
+        display: flex;
+        gap: var(--spacing-lg);
+    }
+
+    /* Content Visual Components */
+    .dashboard-preview,
+    .analytics-preview,
+    .security-preview {
+        background: white;
+        border-radius: var(--radius-xl);
+        padding: var(--spacing-xl);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-md);
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .live-indicator {
+        color: var(--success-color);
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+    }
+
+    .dashboard-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-lg);
+    }
+
+    .metric {
+        text-align: center;
+    }
+
+    .metric-value {
+        display: block;
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    .metric-label {
+        font-size: var(--font-size-sm);
+        color: var(--gray-600);
+    }
+
+    .chart-container h4 {
+        margin-bottom: var(--spacing-lg);
+        text-align: center;
+    }
+
+    .chart-placeholder {
+        height: 200px;
+        background-color: var(--gray-50);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        padding: var(--spacing-lg);
+    }
+
+    .chart-bars {
+        display: flex;
+        gap: var(--spacing-md);
+        align-items: end;
+        height: 100%;
+    }
+
+    .bar {
+        width: 40px;
+        background: linear-gradient(to top, var(--primary-color), var(--secondary-color));
+        border-radius: var(--radius-sm);
+        min-height: 20%;
+    }
+
+    .security-badges {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    .badge-item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+        background-color: var(--gray-50);
+        border-radius: var(--radius-lg);
+    }
+
+    .badge-item i {
+        color: var(--primary-color);
+        width: 24px;
+        height: 24px;
+    }
+
+    .mobile-features {
+        display: flex;
+        justify-content: center;
+    }
+
+    .feature-showcase {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    /* ... continuing from previous CSS ... */
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+        background: white;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+    }
+
+    .feature-item i {
+        color: var(--primary-color);
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Mobile Responsive for Segment Nav */
+    @media (max-width: 768px) {
+        .segment-tabs {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tab-btn {
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+        }
+
+        .content-grid {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-2xl);
+            text-align: center;
+        }
+
+        .cta-group {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dashboard-metrics {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+    }
+
+    /* Features Section */
+    .features {
+        padding: var(--spacing-3xl) 0;
+        background-color: var(--gray-50);
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: var(--spacing-3xl);
+    }
+
+    .section-subtitle {
+        font-size: var(--font-size-lg);
+        color: var(--gray-600);
+        margin-top: var(--spacing-md);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: var(--spacing-xl);
+    }
+
+    .feature-card-large {
+        background: white;
+        padding: var(--spacing-2xl);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-md);
+        transition: all 0.3s ease;
+        border: 1px solid var(--gray-200);
+    }
+
+    .feature-card-large:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--primary-color);
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .feature-icon .icon-primary {
+        color: white;
+        width: 32px;
+        height: 32px;
+    }
+
+    .feature-card-large h3 {
+        margin-bottom: var(--spacing-md);
+        color: var(--gray-900);
+    }
+
+    .feature-card-large p {
+        color: var(--gray-600);
+        margin-bottom: var(--spacing-lg);
+        line-height: 1.6;
+    }
+
+    .feature-details {
+        list-style: none;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .feature-details li {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+        color: var(--gray-700);
+        font-size: var(--font-size-sm);
+    }
+
+    .feature-details li::before {
+        content: "✓";
+        color: var(--secondary-color);
+        font-weight: bold;
+        font-size: var(--font-size-sm);
+    }
+
+    .feature-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: var(--font-size-sm);
+        transition: color 0.2s ease;
+    }
+
+    .feature-link:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .features-grid {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .feature-card-large {
+            padding: var(--spacing-xl);
+        }
+    }
+
+    /* Demo Section */
+    .demo-section {
+        padding: var(--spacing-3xl) 0;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+    }
+
+    .demo-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-3xl);
+        align-items: center;
+    }
+
+    .demo-text h2 {
+        color: white;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .demo-text p {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-xl);
+        opacity: 0.9;
+    }
+
+    .demo-features {
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .demo-feature {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+        opacity: 0.9;
+    }
+
+    .demo-feature i {
+        width: 20px;
+        height: 20px;
+    }
+
+    .demo-ctas {
+        display: flex;
+        gap: var(--spacing-lg);
+    }
+
+    .demo-ctas .btn {
+        background-color: white;
+        color: var(--primary-color);
+    }
+
+    .demo-ctas .btn:hover {
+        background-color: var(--gray-100);
+    }
+
+    .demo-ctas .btn-outline {
+        background-color: transparent;
+        color: white;
+        border-color: white;
+    }
+
+    .demo-ctas .btn-outline:hover {
+        background-color: white;
+        color: var(--primary-color);
+    }
+
+    .video-container {
+        position: relative;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-xl);
+    }
+
+    .video-placeholder {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(135deg, #2d3748, #1a202c);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .play-button {
+        width: 80px;
+        height: 80px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .play-button:hover {
+        background-color: white;
+        transform: scale(1.1);
+    }
+
+    .play-button i {
+        color: var(--primary-color);
+        width: 32px;
+        height: 32px;
+        margin-left: 4px;
+    }
+
+    .video-overlay {
+        position: absolute;
+        bottom: var(--spacing-lg);
+        left: var(--spacing-lg);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--radius-md);
+        font-size: var(--font-size-sm);
+    }
+
+    @media (max-width: 768px) {
+        .demo-content {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-2xl);
+            text-align: center;
+        }
+
+        .demo-ctas {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .video-placeholder {
+            height: 200px;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    /* Pricing Section */
+    .pricing {
+        padding: var(--spacing-3xl) 0;
+    }
+
+    .pricing-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-3xl);
+    }
+
+    .toggle-label {
+        font-weight: 500;
+        color: var(--gray-700);
+    }
+
+    .toggle-switch {
+        position: relative;
+    }
+
+    .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .toggle-switch label {
+        display: block;
+        width: 50px;
+        height: 24px;
+        background-color: var(--gray-300);
+        border-radius: 12px;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.3s ease;
+    }
+
+    .toggle-switch label::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+    }
+
+    .toggle-switch input:checked+label {
+        background-color: var(--primary-color);
+    }
+
+    .toggle-switch input:checked+label::after {
+        transform: translateX(26px);
+    }
+
+    .discount-badge {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+        font-size: var(--font-size-xs);
+        margin-left: var(--spacing-sm);
+    }
+
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xl);
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .pricing-card {
+        background: white;
+        border-radius: var(--radius-xl);
+        padding: var(--spacing-2xl);
+        box-shadow: var(--shadow-md);
+        border: 2px solid var(--gray-200);
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .pricing-card.featured {
+        border-color: var(--primary-color);
+        transform: scale(1.05);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .pricing-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .pricing-card.featured:hover {
+        transform: scale(1.05) translateY(-5px);
+    }
+
+    .plan-badge {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--primary-color);
+        color: white;
+        padding: var(--spacing-sm) var(--spacing-lg);
+        border-radius: var(--radius-md);
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+    }
+
+    .plan-header {
+        text-align: center;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .plan-header h3 {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .plan-description {
+        color: var(--gray-600);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .plan-price {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: var(--spacing-sm);
+    }
+
+    .price {
+        font-size: var(--font-size-4xl);
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    .period {
+        color: var(--gray-600);
+        font-size: var(--font-size-base);
+    }
+
+    .plan-features {
+        list-style: none;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .plan-features li {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+        color: var(--gray-700);
+    }
+
+    .plan-features i {
+        width: 20px;
+        height: 20px;
+    }
+
+    .plan-features i[data-feather="check"] {
+        color: var(--secondary-color);
+    }
+
+    .plan-features i[data-feather="x"] {
+        color: var(--gray-400);
+    }
+
+    .pricing-footer {
+        text-align: center;
+        color: var(--gray-600);
+    }
+
+    .pricing-footer p {
+        margin-bottom: var(--spacing-md);
+    }
+
+    @media (max-width: 768px) {
+        .pricing-grid {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .pricing-card.featured {
+            transform: none;
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-toggle {
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+    }
+
+    /* FAQ Section */
+    .faq {
+        padding: var(--spacing-3xl) 0;
+        background-color: var(--gray-50);
+    }
+
+    .faq-grid {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .faq-item {
+        background: white;
+        border-radius: var(--radius-lg);
+        margin-bottom: var(--spacing-lg);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-xl);
+        background: none;
+        border: none;
+        text-align: left;
+        font-size: var(--font-size-lg);
+        font-weight: 600;
+        color: var(--gray-900);
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .faq-question:hover {
+        background-color: var(--gray-50);
+    }
+
+    .faq-question i {
+        transition: transform 0.2s ease;
+        color: var(--primary-color);
+    }
+
+    .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 200px;
+    }
+
+    .faq-answer p {
+        padding: 0 var(--spacing-xl) var(--spacing-xl);
+        color: var(--gray-600);
+        line-height: 1.6;
+    }
+
+    /* Final CTA Section */
+    .final-cta {
+        padding: var(--spacing-3xl) 0;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        text-align: center;
+    }
+
+    .cta-content h2 {
+        color: white;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .cta-content p {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-2xl);
+        opacity: 0.9;
+    }
+
+    .cta-options {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-3xl);
+        margin-bottom: var(--spacing-2xl);
+        align-items: center;
+    }
+
+    .cta-option {
+        flex: 1;
+        max-width: 300px;
+    }
+
+    .cta-option h3 {
+        color: white;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .cta-option p {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-lg);
+        opacity: 0.8;
+    }
+
+    .cta-divider {
+        font-size: var(--font-size-lg);
+        font-weight: 500;
+        opacity: 0.7;
+    }
+
+    .cta-options .btn {
+        background-color: white;
+        color: var(--primary-color);
+    }
+
+    .cta-options .btn:hover {
+        background-color: var(--gray-100);
+    }
+
+    .cta-options .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .cta-options .btn-secondary:hover {
+        background-color: white;
+        color: var(--primary-color);
+    }
+
+    .final-trust {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-2xl);
+        opacity: 0.8;
+    }
+
+    .trust-item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+
+    .trust-item i {
+        width: 20px;
+        height: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .cta-options {
+            flex-direction: column;
+            gap: var(--spacing-xl);
+        }
+
+        .cta-divider {
+            order: -1;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .final-trust {
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+    }
+
+    /* Footer */
+    .footer {
+        background-color: var(--gray-900);
+        color: var(--gray-300);
+        padding: var(--spacing-3xl) 0 var(--spacing-xl);
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        gap: var(--spacing-2xl);
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .footer-section h4 {
+        color: white;
+        margin-bottom: var(--spacing-lg);
+        font-size: var(--font-size-lg);
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        font-size: var(--font-size-xl);
+        font-weight: 700;
+        color: white;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .footer-description {
+        margin-bottom: var(--spacing-lg);
+        color: var(--gray-400);
+        line-height: 1.6;
+    }
+
+    .social-links {
+        display: flex;
+        gap: var(--spacing-md);
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        background-color: var(--gray-800);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray-400);
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+    .social-link:hover {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .footer-links a {
+        color: var(--gray-400);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+        color: white;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid var(--gray-800);
+        padding-top: var(--spacing-xl);
+    }
+
+    .footer-bottom-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-badges {
+        display: flex;
+        gap: var(--spacing-md);
+    }
+
+    .footer-badges .badge {
+        background-color: var(--gray-800);
+        color: var(--gray-400);
+        padding: var(--spacing-xs) var(--spacing-md);
+        border-radius: var(--radius-sm);
+        font-size: var(--font-size-xs);
+    }
+
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+        }
+
+        .footer-bottom-content {
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .footer-badges {
+            justify-content: center;
+        }
+    }
+
+    /* Modal */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+    }
+
+    .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-content {
+        background: white;
+        border-radius: var(--radius-xl);
+        max-width: 500px;
+        width: 90%;
+        max-height: 90%;
+        overflow-y: auto;
+        position: relative;
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-xl);
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .modal-close {
+        background: none;
+        border: none;
+        font-size: var(--font-size-2xl);
+        cursor: pointer;
+        color: var(--gray-500);
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-close:hover {
+        color: var(--gray-700);
+    }
+
+    .modal-body {
+        padding: var(--spacing-xl);
+        text-align: center;
+    }
+
+    .download-options {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .download-btn img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .qr-code {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+
+    .qr-code img {
+        border-radius: var(--radius-md);
+    }
+
+    /* Utility Classes */
+    .text-center {
+        text-align: center;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .mb-0 {
+        margin-bottom: 0;
+    }
+
+    .mb-1 {
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .mb-2 {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .mb-3 {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .mb-4 {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .mb-5 {
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .mt-0 {
+        margin-top: 0;
+    }
+
+    .mt-1 {
+        margin-top: var(--spacing-xs);
+    }
+
+    .mt-2 {
+        margin-top: var(--spacing-sm);
+    }
+
+    .mt-3 {
+        margin-top: var(--spacing-md);
+    }
+
+    .mt-4 {
+        margin-top: var(--spacing-lg);
+    }
+
+    .mt-5 {
+        margin-top: var(--spacing-xl);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .visible {
+        display: block;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInUp {
+        from {
+            transform: translateY(100%);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes bounce {
+
+        0%,
+        20%,
+        53%,
+        80%,
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+
+        40%,
+        43% {
+            transform: translate3d(0, -30px, 0);
+        }
+
+        70% {
+            transform: translate3d(0, -15px, 0);
+        }
+
+        90% {
+            transform: translate3d(0, -4px, 0);
+        }
+    }
+
+    .animate-fadeIn {
+        animation: fadeIn 0.6s ease-out;
+    }
+
+    .animate-slideInUp {
+        animation: slideInUp 0.6s ease-out;
+    }
+
+    .animate-bounce {
+        animation: bounce 2s infinite;
+    }
+
+    /* Print Styles */
+    @media print {
+
+        .navbar,
+        .hero-visual,
+        .floating-cards,
+        .demo-section,
+        .final-cta,
+        .footer {
+            display: none;
+        }
+
+        .hero-container {
+            grid-template-columns: 1fr;
+        }
+
+        body {
+            font-size: 12pt;
+            line-height: 1.4;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            page-break-after: avoid;
+        }
+
+        .section {
+            page-break-inside: avoid;
+        }
+    }
+
+    /* High Contrast Mode */
+    @media (prefers-contrast: high) {
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #000000;
+            --gray-600: #000000;
+            --gray-700: #000000;
+            --gray-800: #000000;
+            --gray-900: #000000;
+        }
+
+        .btn-outline {
+            border-width: 3px;
+        }
+
+        .feature-card-large {
+            border-width: 2px;
+            border-color: #000000;
+        }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+
+        .floating-cards {
+            display: none;
+        }
+    }
+
+    /* Focus Styles for Accessibility */
+    .btn:focus,
+    .tab-btn:focus,
+    .faq-question:focus,
+    .nav-link:focus {
+        outline: 3px solid var(--info-color);
+        outline-offset: 2px;
+    }
+
+    /* Screen Reader Only */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+</style>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">📱</span>
+                <span class="logo-text">WorkFlow Pro</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#solutions" class="nav-link">Solutions</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#resources" class="nav-link">Resources</a>
+                <div class="nav-cta">
+                    <a href="#demo" class="btn btn-outline">Sign In</a>
+                    <a href="#demo" class="btn btn-primary">Start Free Trial</a>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge">🚀 New: GPS-Powered Attendance Tracking</span>
+                </div>
+                <h1 class="hero-title">
+                    Modern HRM That Works<br>
+                    <span class="gradient-text">Everywhere Your Team Does</span>
+                </h1>
+                <p class="hero-description">
+                    Transform your workforce management with our mobile-first HRM platform.
+                    From employee profiles to payroll automation—all in your pocket.
+                </p>
+
+                <!-- Multi-Stakeholder CTAs -->
+                <div class="hero-ctas">
+                    <div class="cta-primary">
+                        <a href="#demo" class="btn btn-primary btn-large">
+                            <i data-feather="play-circle"></i>
+                            Watch 2-Min Demo
+                        </a>
+                        <a href="#trial" class="btn btn-secondary btn-large">
+                            <i data-feather="smartphone"></i>
+                            Start Free Trial
+                        </a>
+                    </div>
+
+                    <div class="cta-segments">
+                        <div class="segment-cta">
+                            <span class="segment-label">For HR Teams:</span>
+                            <a href="#hr-demo" class="link-cta">Schedule Live Demo →</a>
+                        </div>
+                        <div class="segment-cta">
+                            <span class="segment-label">For Executives:</span>
+                            <a href="#enterprise" class="link-cta">Get Enterprise Pricing →</a>
+                        </div>
+                        <div class="segment-cta">
+                            <span class="segment-label">For IT Teams:</span>
+                            <a href="#technical" class="link-cta">View Technical Specs →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="hero-trust">
+                    <div class="trust-stats">
+                        <div class="stat">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Active Users</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Companies</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Uptime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="app-interface">
+                                <div class="app-header">
+                                    <div class="status-bar">
+                                        <span class="time">9:41</span>
+                                        <div class="indicators">
+                                            <span class="signal"></span>
+                                            <span class="wifi"></span>
+                                            <span class="battery"></span>
+                                        </div>
+                                    </div>
+                                    <div class="app-nav">
+                                        <h3>Dashboard</h3>
+                                        <div class="profile-pic"></div>
+                                    </div>
+                                </div>
+                                <div class="app-content">
+                                    <div class="quick-actions">
+                                        <div class="action-item active">
+                                            <i data-feather="clock"></i>
+                                            <span>Clock In</span>
+                                        </div>
+                                        <div class="action-item">
+                                            <i data-feather="users"></i>
+                                            <span>Team</span>
+                                        </div>
+                                        <div class="action-item">
+                                            <i data-feather="dollar-sign"></i>
+                                            <span>Payroll</span>
+                                        </div>
+                                        <div class="action-item">
+                                            <i data-feather="map-pin"></i>
+                                            <span>Location</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Feature Cards -->
+                <div class="floating-cards">
+                    <div class="feature-card card-1">
+                        <i data-feather="check-circle"></i>
+                        <span>Real-time Attendance</span>
+                    </div>
+                    <div class="feature-card card-2">
+                        <i data-feather="shield"></i>
+                        <span>Enterprise Security</span>
+                    </div>
+                    <div class="feature-card card-3">
+                        <i data-feather="zap"></i>
+                        <span>Instant Sync</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <p class="proof-text">Trusted by leading companies worldwide</p>
+            <div class="company-logos">
+                <div class="logo-item">TechCorp</div>
+                <div class="logo-item">InnovateCo</div>
+                <div class="logo-item">GlobalTech</div>
+                <div class="logo-item">FutureSoft</div>
+                <div class="logo-item">Enterprise Solutions</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Segment Navigation -->
+    <section class="segment-nav" id="solutions">
+        <div class="container">
+            <h2 class="section-title">Solutions Tailored for Your Role</h2>
+            <div class="segment-tabs">
+                <button class="tab-btn active" data-target="hr-managers">
+                    <i data-feather="users"></i>
+                    <span>HR Managers</span>
+                </button>
+                <button class="tab-btn" data-target="executives">
+                    <i data-feather="trending-up"></i>
+                    <span>Executives</span>
+                </button>
+                <button class="tab-btn" data-target="it-admins">
+                    <i data-feather="settings"></i>
+                    <span>IT Teams</span>
+                </button>
+                <button class="tab-btn" data-target="employees">
+                    <i data-feather="smartphone"></i>
+                    <span>Employees</span>
+                </button>
+            </div>
+
+            <!-- HR Managers Content -->
+            <div class="tab-content active" id="hr-managers">
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Streamline HR Operations</h3>
+                        <p>Reduce administrative overhead by 60% with automated workflows, compliance tracking, and
+                            real-time reporting.</p>
+                        <ul class="feature-list">
+                            <li><i data-feather="check"></i> Automated attendance tracking</li>
+                            <li><i data-feather="check"></i> Compliance reporting dashboard</li>
+                            <li><i data-feather="check"></i> Employee self-service portal</li>
+                            <li><i data-feather="check"></i> Performance analytics</li>
+                        </ul>
+                        <div class="cta-group">
+                            <a href="#hr-demo" class="btn btn-primary">Schedule Live Demo</a>
+                            <a href="#hr-trial" class="btn btn-outline">Start Free Trial</a>
+                        </div>
+                    </div>
+                    <div class="content-visual">
+                        <div class="dashboard-preview">
+                            <div class="dashboard-header">
+                                <h4>HR Dashboard</h4>
+                                <span class="live-indicator">● LIVE</span>
+                            </div>
+                            <div class="dashboard-metrics">
+                                <div class="metric">
+                                    <span class="metric-value">247</span>
+                                    <span class="metric-label">Active Employees</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">96.2%</span>
+                                    <span class="metric-label">Attendance Rate</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">12</span>
+                                    <span class="metric-label">Pending Approvals</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Executives Content -->
+            <div class="tab-content" id="executives">
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Drive Strategic Workforce Decisions</h3>
+                        <p>Gain workforce insights that impact your bottom line. Reduce operational costs and improve
+                            productivity with data-driven decisions.</p>
+                        <ul class="feature-list">
+                            <li><i data-feather="check"></i> Real-time workforce analytics</li>
+                            <li><i data-feather="check"></i> Cost optimization insights</li>
+                            <li><i data-feather="check"></i> Productivity benchmarking</li>
+                            <li><i data-feather="check"></i> Executive reporting suite</li>
+                        </ul>
+                        <div class="cta-group">
+                            <a href="#enterprise-demo" class="btn btn-primary">Get Enterprise Pricing</a>
+                            <a href="#roi-calculator" class="btn btn-outline">Calculate ROI</a>
+                        </div>
+                    </div>
+                    <div class="content-visual">
+                        <div class="analytics-preview">
+                            <div class="chart-container">
+                                <h4>Workforce Analytics</h4>
+                                <div class="chart-placeholder">
+                                    <div class="chart-bars">
+                                        <div class="bar" style="height: 60%"></div>
+                                        <div class="bar" style="height: 80%"></div>
+                                        <div class="bar" style="height: 45%"></div>
+                                        <div class="bar" style="height: 90%"></div>
+                                        <div class="bar" style="height: 70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IT Admins Content -->
+            <div class="tab-content" id="it-admins">
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Enterprise-Grade Security & Integration</h3>
+                        <p>Deploy with confidence. SOC 2 compliant, enterprise SSO, and robust API for seamless
+                            integration with your existing systems.</p>
+                        <ul class="feature-list">
+                            <li><i data-feather="check"></i> SOC 2 Type II compliance</li>
+                            <li><i data-feather="check"></i> Enterprise SSO integration</li>
+                            <li><i data-feather="check"></i> RESTful API access</li>
+                            <li><i data-feather="check"></i> Advanced user permissions</li>
+                        </ul>
+                        <div class="cta-group">
+                            <a href="#technical-specs" class="btn btn-primary">View Technical Specs</a>
+                            <a href="#api-docs" class="btn btn-outline">API Documentation</a>
+                        </div>
+                    </div>
+                    <div class="content-visual">
+                        <div class="security-preview">
+                            <div class="security-badges">
+                                <div class="badge-item">
+                                    <i data-feather="shield"></i>
+                                    <span>SOC 2 Certified</span>
+                                </div>
+                                <div class="badge-item">
+                                    <i data-feather="lock"></i>
+                                    <span>256-bit Encryption</span>
+                                </div>
+                                <div class="badge-item">
+                                    <i data-feather="server"></i>
+                                    <span>99.9% Uptime SLA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employees Content -->
+            <div class="tab-content" id="employees">
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Your Work Life, Simplified</h3>
+                        <p>Clock in from anywhere, view your schedule, request time off, and access your pay stubs—all
+                            from your mobile device.</p>
+                        <ul class="feature-list">
+                            <li><i data-feather="check"></i> One-tap clock in/out</li>
+                            <li><i data-feather="check"></i> GPS-verified attendance</li>
+                            <li><i data-feather="check"></i> Digital pay stubs</li>
+                            <li><i data-feather="check"></i> Time-off requests</li>
+                        </ul>
+                        <div class="cta-group">
+                            <a href="#app-download" class="btn btn-primary">Download App</a>
+                            <a href="#employee-portal" class="btn btn-outline">Employee Portal Demo</a>
+                        </div>
+                    </div>
+                    <div class="content-visual">
+                        <div class="mobile-features">
+                            <div class="feature-showcase">
+                                <div class="feature-item">
+                                    <i data-feather="clock"></i>
+                                    <span>Quick Clock-In</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="map-pin"></i>
+                                    <span>Location Verified</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i data-feather="calendar"></i>
+                                    <span>Schedule View</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Everything You Need for Modern Workforce Management</h2>
+                <p class="section-subtitle">Five powerful modules that work together seamlessly</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card-large">
+                    <div class="feature-icon">
+                        <i data-feather="users" class="icon-primary"></i>
+                    </div>
+                    <h3>Employee Profiles</h3>
+                    <p>Comprehensive staff management with digital employee directory, document storage, and profile
+                        management.</p>
+                    <ul class="feature-details">
+                        <li>Digital employee directory</li>
+                        <li>Document management</li>
+                        <li>Skills & certification tracking</li>
+                        <li>Emergency contact management</li>
+                    </ul>
+                    <a href="#profiles-demo" class="feature-link">Explore Feature →</a>
+                </div>
+
+                <div class="feature-card-large">
+                    <div class="feature-icon">
+                        <i data-feather="clock" class="icon-primary"></i>
+                    </div>
+                    <h3>Attendance Tracking</h3>
+                    <p>Real-time clock-in/out with mobile capabilities, automatic overtime calculation, and attendance
+                        analytics.</p>
+                    <ul class="feature-details">
+                        <li>GPS-verified clock-in/out</li>
+                        <li>Real-time attendance monitoring</li>
+                        <li>Automatic overtime tracking</li>
+                        <li>Attendance pattern analytics</li>
+                    </ul>
+                    <a href="#attendance-demo" class="feature-link">Explore Feature →</a>
+                </div>
+
+                <div class="feature-card-large">
+                    <div class="feature-icon">
+                        <i data-feather="dollar-sign" class="icon-primary"></i>
+                    </div>
+                    <h3>Payroll Management</h3>
+                    <p>Automated salary processing, tax calculations, and direct deposit management with full
+                        compliance.</p>
+                    <ul class="feature-details">
+                        <li>Automated payroll processing</li>
+                        <li>Tax calculation & compliance</li>
+                        <li>Direct deposit management</li>
+                        <li>Payroll reporting & analytics</li>
+                    </ul>
+                    <a href="#payroll-demo" class="feature-link">Explore Feature →</a>
+                </div>
+
+                <div class="feature-card-large">
+                    <div class="feature-icon">
+                        <i data-feather="map-pin" class="icon-primary"></i>
+                    </div>
+                    <h3>GPS Integration</h3>
+                    <p>Location-based attendance verification, field worker tracking, and geofencing for enhanced
+                        security.</p>
+                    <ul class="feature-details">
+                        <li>Geofenced attendance zones</li>
+                        <li>Field worker location tracking</li>
+                        <li>Route optimization</li>
+                        <li>Location-based reporting</li>
+                    </ul>
+                    <a href="#gps-demo" class="feature-link">Explore Feature →</a>
+                </div>
+
+                <div class="feature-card-large">
+                    <div class="feature-icon">
+                        <i data-feather="calendar" class="icon-primary"></i>
+                    </div>
+                    <h3>Timekeeper Integration</h3>
+                    <p>Advanced time management, scheduling tools, and project time tracking with detailed analytics.
+                    </p>
+                    <ul class="feature-details">
+                        <li>Advanced scheduling tools</li>
+                        <li>Project time tracking</li>
+                        <li>Time-off management</li>
+                        <li>Productivity analytics</li>
+                    </ul>
+                    <a href="#timekeeper-demo" class="feature-link">Explore Feature →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="demo-content">
+                <div class="demo-text">
+                    <h2>See WorkFlow Pro in Action</h2>
+                    <p>Watch how our mobile-first HRM platform transforms workforce management in under 2 minutes.</p>
+
+                    <div class="demo-features">
+                        <div class="demo-feature">
+                            <i data-feather="play-circle"></i>
+                            <span>Interactive product walkthrough</span>
+                        </div>
+                        <div class="demo-feature">
+                            <i data-feather="smartphone"></i>
+                            <span>Mobile app demonstration</span>
+                        </div>
+                        <div class="demo-feature">
+                            <i data-feather="users"></i>
+                            <span>Multi-user perspective views</span>
+                        </div>
+                    </div>
+
+                    <div class="demo-ctas">
+                        <a href="#video-demo" class="btn btn-primary btn-large">
+                            <i data-feather="play"></i>
+                            Watch Demo Video
+                        </a>
+                        <a href="#live-demo" class="btn btn-outline btn-large">
+                            <i data-feather="monitor"></i>
+                            Request Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="demo-visual">
+                    <div class="video-container">
+                        <div class="video-placeholder">
+                            <div class="play-button">
+                                <i data-feather="play"></i>
+                            </div>
+                            <div class="video-overlay">
+                                <span>2:15 - Product Demo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your Plan</h2>
+                <p class="section-subtitle">Flexible pricing that scales with your team</p>
+            </div>
+
+            <div class="pricing-toggle">
+                <span class="toggle-label">Monthly</span>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="pricing-toggle">
+                    <label for="pricing-toggle"></label>
+                </div>
+                <span class="toggle-label">Annual <span class="discount-badge">Save 20%</span></span>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Starter</h3>
+                        <p class="plan-description">Perfect for small teams</p>
+                        <div class="plan-price">
+                            <span class="price">$8</span>
+                            <span class="period">/user/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i data-feather="check"></i> Employee profiles</li>
+                        <li><i data-feather="check"></i> Basic attendance tracking</li>
+                        <li><i data-feather="check"></i> Mobile app access</li>
+                        <li><i data-feather="check"></i> Email support</li>
+                        <li><i data-feather="x"></i> GPS tracking</li>
+                        <li><i data-feather="x"></i> Payroll management</li>
+                    </ul>
+                    <a href="#starter-signup" class="btn btn-outline btn-full">Start Free Trial</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="plan-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Professional</h3>
+                        <p class="plan-description">For growing businesses</p>
+                        <div class="plan-price">
+                            <span class="price">$15</span>
+                            <span class="period">/user/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i data-feather="check"></i> Everything in Starter</li>
+                        <li><i data-feather="check"></i> GPS attendance tracking</li>
+                        <li><i data-feather="check"></i> Basic payroll management</li>
+                        <li><i data-feather="check"></i> Advanced reporting</li>
+                        <li><i data-feather="check"></i> Priority support</li>
+                        <li><i data-feather="check"></i> API access</li>
+                    </ul>
+                    <a href="#pro-signup" class="btn btn-primary btn-full">Start Free Trial</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Enterprise</h3>
+                        <p class="plan-description">For large organizations</p>
+                        <div class="plan-price">
+                            <span class="price">Custom</span>
+                            <span class="period">pricing</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i data-feather="check"></i> Everything in Professional</li>
+                        <li><i data-feather="check"></i> Advanced security features</li>
+                        <li><i data-feather="check"></i> Custom integrations</li>
+                        <li><i data-feather="check"></i> Dedicated account manager</li>
+                        <li><i data-feather="check"></i> SLA guarantees</li>
+                        <li><i data-feather="check"></i> On-premise deployment</li>
+                    </ul>
+                    <a href="#enterprise-contact" class="btn btn-outline btn-full">Contact Sales</a>
+                </div>
+            </div>
+
+            <div class="pricing-footer">
+                <p>All plans include a 14-day free trial. No credit card required.</p>
+                <a href="#pricing-comparison" class="link-cta">Compare all features →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about WorkFlow Pro</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How does GPS attendance tracking work?</span>
+                        <i data-feather="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our GPS attendance system uses geofencing technology to verify employee locations when
+                            clocking in/out. You can set up specific zones, and employees can only clock in when they're
+                            within the designated area. This ensures accurate attendance while respecting privacy.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is my data secure and compliant?</span>
+                        <i data-feather="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, WorkFlow Pro is SOC 2 Type II certified and fully compliant with GDPR, CCPA, and other
+                            major privacy regulations. We use 256-bit encryption, regular security audits, and maintain
+                            99.9% uptime with enterprise-grade security protocols.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I integrate with my existing payroll system?</span>
+                        <i data-feather="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! WorkFlow Pro offers robust API integration capabilities and pre-built connectors
+                            for popular payroll systems like ADP, QuickBooks, and Sage. Our technical team can assist
+                            with custom integrations if needed.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What kind of support do you provide?</span>
+                        <i data-feather="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer multiple support channels including 24/7 chat support, email assistance, phone
+                            support for Professional and Enterprise plans, comprehensive documentation, video tutorials,
+                            and dedicated account managers for Enterprise customers.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How quickly can we get up and running?</span>
+                        <i data-feather="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most organizations are up and running within 24-48 hours. Our setup wizard guides you through
+                            employee import, policy configuration, and mobile app deployment. Enterprise implementations
+                            typically take 1-2 weeks with our dedicated onboarding team.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you offer a free trial?</span>
+                        <i data-feather="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a full-featured 14-day free trial with no credit card required. You'll have
+                            access to all features, can import your team, and get full support during the trial period.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Workforce Management?</h2>
+                <p>Join thousands of companies already using WorkFlow Pro to streamline their HR operations</p>
+
+                <div class="cta-options">
+                    <div class="cta-option">
+                        <h3>Start Your Free Trial</h3>
+                        <p>No credit card required • 14-day trial • Full feature access</p>
+                        <a href="#trial-signup" class="btn btn-primary btn-large">Start Free Trial</a>
+                    </div>
+
+                    <div class="cta-divider">or</div>
+
+                    <div class="cta-option">
+                        <h3>Schedule a Live Demo</h3>
+                        <p>See WorkFlow Pro in action • Customized to your needs • Q&A with experts</p>
+                        <a href="#demo-booking" class="btn btn-secondary btn-large">Book Demo</a>
+                    </div>
+                </div>
+
+                <div class="final-trust">
+                    <div class="trust-item">
+                        <i data-feather="shield"></i>
+                        <span>Enterprise Security</span>
+                    </div>
+                    <div class="trust-item">
+                        <i data-feather="headphones"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                    <div class="trust-item">
+                        <i data-feather="trending-up"></i>
+                        <span>Proven ROI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📱</span>
+                        <span class="logo-text">WorkFlow Pro</span>
+                    </div>
+                    <p class="footer-description">
+                        Modern mobile-first HRM solution that transforms how you manage your workforce.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i data-feather="linkedin"></i></a>
+                        <a href="#" class="social-link"><i data-feather="twitter"></i></a>
+                        <a href="#" class="social-link"><i data-feather="facebook"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#demo">Demo</a></li>
+                        <li><a href="#mobile-app">Mobile App</a></li>
+                        <li><a href="#integrations">Integrations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Solutions</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hr-teams">For HR Teams</a></li>
+                        <li><a href="#executives">For Executives</a></li>
+                        <li><a href="#it-teams">For IT Teams</a></li>
+                        <li><a href="#employees">For Employees</a></li>
+                        <li><a href="#enterprise">Enterprise</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#help-center">Help Center</a></li>
+                        <li><a href="#api-docs">API Documentation</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#compliance">Compliance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 WorkFlow Pro. All rights reserved.</p>
+                    <div class="footer-badges">
+                        <span class="badge">SOC 2 Certified</span>
+                        <span class="badge">GDPR Compliant</span>
+                        <span class="badge">ISO 27001</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile App Download Modal -->
+    <div class="modal" id="app-download-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Download WorkFlow Pro</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="download-options">
+                    <a href="#ios-download" class="download-btn">
+                        <img src="/api/placeholder/120/40" alt="Download on App Store">
+                    </a>
+                    <a href="#android-download" class="download-btn">
+                        <img src="/api/placeholder/120/40" alt="Get it on Google Play">
+                    </a>
+                </div>
+                <div class="qr-code">
+                    <img src="/api/placeholder/150/150" alt="QR Code for App Download">
+                    <p>Scan to download</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
