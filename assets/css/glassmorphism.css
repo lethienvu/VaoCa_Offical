@@ -1,21 +1,101 @@
 /* ===========================================
-   VaoCa Glassmorphism Design System V2.0
-   Unified Sophisticated Glass Architecture
+   VaoCa Glassmorphism Design System V3.0
+   Modern Elegant Glass Architecture
    =========================================== */
 
-/* VIETINSOFT GREEN GRADIENT THEME - DARKER BUT BRIGHTER */
+/* Base Theme */
 html,
 body {
-    background: #1a1a1a !important;
-    color: rgba(255, 255, 255, 0.95) !important;
+    margin: 0;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.9);
     min-height: 100vh;
-    padding-top: 0;
-    /* Remove any default padding */
+    font-family: 'Open-sans', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
 }
 
 body {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 20%, #004c39 50%, #2a2a2a 80%, #1a1a1a 100%) !important;
-    background-attachment: fixed;
+    /* Gradient xanh đen sâu hơn, giảm độ sáng và độ chối */
+    background: #fff;
+    /* background-image:
+        radial-gradient(180px 180px at 12% 28%, rgba(29, 147, 54, 0.25) 0%, rgba(29, 147, 54, 0.12) 50%, transparent 75%),
+        radial-gradient(220px 220px at 88% 32%, rgba(0, 103, 59, 0.22) 0%, rgba(0, 103, 59, 0.10) 45%, transparent 70%),
+        radial-gradient(160px 160px at 42% 18%, rgba(16, 185, 129, 0.20) 0%, rgba(16, 185, 129, 0.08) 40%, transparent 65%),
+        radial-gradient(240px 240px at 78% 82%, rgba(0, 76, 57, 0.28) 0%, rgba(0, 76, 57, 0.14) 50%, transparent 80%),
+        radial-gradient(140px 140px at 28% 72%, rgba(34, 197, 94, 0.18) 0%, rgba(34, 197, 94, 0.06) 35%, transparent 60%),
+        radial-gradient(200px 200px at 92% 25%, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0.05) 40%, transparent 65%),
+        radial-gradient(120px 120px at 65% 45%, rgba(29, 147, 54, 0.12) 0%, rgba(29, 147, 54, 0.04) 30%, transparent 55%),
+        radial-gradient(180px 180px at 8% 85%, rgba(0, 103, 59, 0.20) 0%, rgba(0, 103, 59, 0.08) 45%, transparent 70%),
+        radial-gradient(800px 300px at 50% 95%, rgba(29, 147, 54, 0.08) 0%, rgba(29, 147, 54, 0.03) 60%, transparent 80%),
+        radial-gradient(100% 100% at 50% 50%, transparent 20%, rgba(0, 0, 0, 0.80) 55%, rgba(0, 0, 0, 0.95) 100%),
+        linear-gradient(180deg,
+            #000000 0%,
+            #000805 20%,
+            #001008 40%,
+            #000603 60%,
+            #000000 100%
+        ) !important; */
+    /* background-image:
+                radial-gradient(140px 140px at 18% 22%, rgba(29, 147, 54, 0.28) 0%, rgba(29, 147, 54, 0.12) 50%, transparent 75%),
+                radial-gradient(190px 190px at 82% 38%, rgba(0, 103, 59, 0.25) 0%, rgba(0, 103, 59, 0.10) 45%, transparent 70%),
+                radial-gradient(110px 110px at 38% 12%, rgba(16, 185, 129, 0.22) 0%, rgba(16, 185, 129, 0.08) 40%, transparent 65%),
+                radial-gradient(220px 220px at 72% 88%, rgba(0, 76, 57, 0.32) 0%, rgba(0, 76, 57, 0.15) 50%, transparent 80%),
+                radial-gradient(90px 90px at 22% 78%, rgba(34, 197, 94, 0.18) 0%, rgba(34, 197, 94, 0.06) 35%, transparent 60%),
+                radial-gradient(160px 160px at 88% 18%, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0.05) 40%, transparent 70%),
+                radial-gradient(70px 70px at 58% 42%, rgba(29, 147, 54, 0.12) 0%, rgba(29, 147, 54, 0.04) 30%, transparent 55%),
+                radial-gradient(130px 130px at 12% 82%, rgba(0, 103, 59, 0.20) 0%, rgba(0, 103, 59, 0.08) 45%, transparent 70%),
+                radial-gradient(50px 50px at 68% 28%, rgba(16, 185, 129, 0.10) 0%, rgba(16, 185, 129, 0.03) 25%, transparent 50%),
+                radial-gradient(100px 100px at 92% 68%, rgba(0, 76, 57, 0.16) 0%, rgba(0, 76, 57, 0.05) 40%, transparent 65%),
+                radial-gradient(500px 200px at 50% 95%, rgba(29, 147, 54, 0.08) 0%, rgba(29, 147, 54, 0.03) 70%, transparent 85%),
+                radial-gradient(85% 100% at 50% 50%, transparent 15%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.90) 100%),
+                linear-gradient(160deg,
+                    #000808 0%,
+                    #001010 30%,
+                    #001818 60%,
+                    #000a0a 100%
+                ) !important; */
+    background-image:
+        radial-gradient(190px 190px at 82% 38%, rgba(29, 147, 54, 0.40) 0%, rgba(29, 147, 54, 0.18) 45%, transparent 70%),
+        radial-gradient(130px 90px at 22% 78%, rgba(41, 163, 66, 0.32) 0%, rgba(41, 163, 66, 0.12) 35%, transparent 60%),
+        radial-gradient(160px 160px at 88% 18%, rgba(27, 143, 52, 0.28) 0%, rgba(27, 143, 52, 0.10) 40%, transparent 70%),
+        radial-gradient(70px 70px at 58% 42%, rgba(29, 147, 54, 0.22) 0%, rgba(29, 147, 54, 0.08) 30%, transparent 55%),
+        radial-gradient(130px 130px at 12% 82%, rgba(25, 135, 50, 0.35) 0%, rgba(25, 135, 50, 0.15) 45%, transparent 70%),
+        radial-gradient(80px 50px at 68% 28%, rgba(33, 151, 58, 0.18) 0%, rgba(33, 151, 58, 0.06) 25%, transparent 50%),
+        radial-gradient(100px 100px at 92% 68%, rgba(21, 131, 46, 0.28) 0%, rgba(21, 131, 46, 0.10) 40%, transparent 65%),
+
+        /* Base layer với #1d9336 - giữ nguyên */
+        radial-gradient(600px 250px at 50% 95%, rgba(29, 147, 54, 0.18) 0%, rgba(29, 147, 54, 0.08) 70%, transparent 85%),
+
+        /* Much darker vignette - tối hơn nhiều */
+        radial-gradient(90% 100% at 50% 50%, transparent 25%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0.95) 100%),
+
+        /* Much darker base - tối hơn nhiều */
+        linear-gradient(160deg,
+            #0a0c0b 0%,
+            /* Cực tối với green tint */
+            #0c0f0d 30%,
+            /* Cực tối với green tint */
+            #0e110f 60%,
+            /* Cực tối với green tint */
+            #0b0d0c 100%
+            /* Cực tối với green tint */
+        ) !important;
+    position: relative;
+}
+
+/* Add subtle animated background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: radial-gradient(circle at top right,
+            rgba(15, 23, 42, 0.8),
+            transparent 70%);
+    animation: backgroundFloat 20s ease infinite;
 }
 
 /* ===========================================
@@ -26,10 +106,10 @@ body {
     /* ===== BRAND COLORS - VIETINSOFT IDENTITY ===== */
     --brand-primary: #004c39;
     --brand-secondary: #1d9336;
-    --brand-accent: #4ade80;
-    --brand-bright: #a6ff00;
+    --brand-accent: #2ead50;
+    --brand-bright: #4ade80;
     --brand-white: #ffffff;
-    --brand-black: #0f1419;
+    --brand-black: #121212;
 
     /* ===== BACKGROUND STRATEGY - ELEGANT DARK WITH SOPHISTICATED GREEN TRANSITION ===== */
     --bg-foundation:
@@ -49,21 +129,23 @@ body {
     /* ===== 3-TIER GLASSMORPHISM HIERARCHY ===== */
     /* Tier 1: Subtle (5% opacity) */
     --glass-tier1-bg: rgba(255, 255, 255, 0.05);
-    --glass-tier1-tint: rgba(0, 76, 57, 0.02);
+    --glass-tier1-tint: rgba(0, 76, 57, 0.01);
     --glass-tier1-border: rgba(255, 255, 255, 0.08);
     --glass-tier1-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
 
     /* Tier 2: Standard (10% opacity) */
     --glass-tier2-bg: rgba(255, 255, 255, 0.1);
-    --glass-tier2-tint: rgba(0, 76, 57, 0.03);
+    --glass-tier2-tint: rgba(0, 76, 57, 0.02);
     --glass-tier2-border: rgba(255, 255, 255, 0.12);
     --glass-tier2-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.15);
 
     /* Tier 3: Prominent (15% opacity) */
     --glass-tier3-bg: rgba(255, 255, 255, 0.15);
-    --glass-tier3-tint: rgba(0, 76, 57, 0.05);
+    --glass-tier3-tint: rgba(0, 76, 57, 0.03);
     --glass-tier3-border: rgba(255, 255, 255, 0.18);
     --glass-tier3-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    --glass-bg: rgba(255, 255, 255, 0.05);
 
     /* ===== BACKDROP BLUR LEVELS ===== */
     --blur-subtle: blur(15px) saturate(180%);
@@ -170,20 +252,6 @@ html {
 }
 
 body {
-    /* Darker edges, brighter green glow toward bottom-center */
-    background: #07110d !important;
-    background-image:
-        /* Soft city-like haze glow at bottom center */
-        radial-gradient(1200px 500px at 50% 95%, rgba(0, 124, 88, 0.22) 0%, rgba(0, 124, 88, 0.15) 25%, rgba(0, 124, 88, 0.06) 50%, transparent 65%),
-        /* Secondary concentrated glow closer to bottom */
-        radial-gradient(700px 280px at 50% 100%, rgba(75, 255, 180, 0.18) 0%, rgba(75, 255, 180, 0.10) 35%, transparent 70%),
-        /* Ambient subtle greens across the canvas */
-        radial-gradient(800px 500px at 20% 20%, rgba(0, 76, 57, 0.10) 0%, transparent 70%),
-        radial-gradient(900px 600px at 80% 30%, rgba(29, 147, 54, 0.08) 0%, transparent 75%),
-        /* Dark vignette edges */
-        radial-gradient(150% 100% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.25) 85%, rgba(0, 0, 0, 0.45) 100%),
-        /* Base deep greenish night gradient */
-        linear-gradient(180deg, #05130e 0%, #07110d 50%, #04100c 100%) !important;
     color: rgba(255, 255, 255, 0.95) !important;
     min-height: 100vh;
     overflow-x: hidden;
@@ -348,24 +416,13 @@ body::before {
 
 /* ===== BASE GLASS CLASSES - SOFT WHITE TRANSLUCENT SYSTEM ===== */
 
-/* Base glass styling for all glass elements */
-.glass,
-[class*="glass-"] {
-    background: rgba(255, 255, 255, 0.10) !important;
-    backdrop-filter: blur(25px) saturate(200%) !important;
-    -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(255, 255, 255, 0.05) !important;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
-}
-
 .glass-tier1 {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(30px) saturate(220%);
+    -webkit-backdrop-filter: blur(30px) saturate(220%);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: var(--radius-md);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.22), 0 8px 25px rgba(255, 255, 255, 0.15);
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -384,12 +441,12 @@ body::before {
 }
 
 .glass-tier2 {
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(25px) saturate(200%);
-    -webkit-backdrop-filter: blur(25px) saturate(200%);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(35px) saturate(240%);
+    -webkit-backdrop-filter: blur(35px) saturate(240%);
+    border: 1px solid rgba(255, 255, 255, 0.28);
     border-radius: var(--radius-lg);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 6px 20px rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28), 0 12px 40px rgba(255, 255, 255, 0.18);
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -408,12 +465,12 @@ body::before {
 }
 
 .glass-tier3 {
-    background: rgba(255, 255, 255, 0.16);
-    backdrop-filter: blur(30px) saturate(220%);
-    -webkit-backdrop-filter: blur(30px) saturate(220%);
-    border: 1px solid rgba(255, 255, 255, 0.20);
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(40px) saturate(260%);
+    -webkit-backdrop-filter: blur(40px) saturate(260%);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: var(--radius-xl);
-    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.18), 0 8px 25px rgba(255, 255, 255, 0.10);
+    box-shadow: 0 32px 120px rgba(0, 0, 0, 0.35), 0 16px 50px rgba(255, 255, 255, 0.22);
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -459,7 +516,7 @@ body::before {
    =========================================== */
 
 .glass-nav {
-    background: rgba(26, 26, 26, 0.95);
+    background: rgba(0, 76, 57, 0.1);
     border-bottom: none;
     position: fixed !important;
     top: 0 !important;
@@ -476,7 +533,7 @@ body::before {
 }
 
 .glass-nav.scrolled {
-    background: rgba(26, 26, 26, 0.98);
+    background: rgba(0, 76, 57, 0.4);
 }
 
 /* Force header to always be visible - override any hidden class */
@@ -623,7 +680,7 @@ body::before {
    =========================================== */
 
 .glass-card {
-    background: rgba(26, 26, 26, 0.8);
+    background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(0, 76, 57, 0.3);
@@ -635,7 +692,7 @@ body::before {
 }
 
 .glass-card:hover {
-    background: rgba(26, 26, 26, 0.9);
+    background: var(--glass-bg);
     border-color: rgba(0, 76, 57, 0.5);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
     transform: translateY(-4px);
@@ -768,6 +825,7 @@ body::before {
     color: rgba(0, 76, 57, 0.9);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+    border-radius: 2rem;
 }
 
 .glass-btn-outline:hover {
@@ -780,14 +838,23 @@ body::before {
 
 /* Call-to-Action Button with Special Effects */
 .cta-btn-special {
-    background: linear-gradient(135deg, rgba(0, 76, 57, 0.9), rgba(29, 147, 54, 0.8));
+    background: linear-gradient(135deg,
+            #1d9336 0%,
+            #73c41d 30%,
+            #a6ff00 70%,
+            #a6ff00 100%);
     border: 2px solid transparent;
     background-clip: padding-box;
-    border-radius: 1rem;
+    border-radius: 2rem;
     color: #ffffff;
     font-weight: 700;
-    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
     padding: 1rem 2rem;
+    min-width: 200px;
+    width: auto;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -842,26 +909,20 @@ body::before {
     transform: translate3d(0, -2px, 0) scale(1.05);
 }
 
-@keyframes gradientShift {
-
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-}
-
 /* Mobile CTA Button */
 .mobile-cta-btn {
-    background: linear-gradient(135deg, rgba(0, 76, 57, 0.9), rgba(29, 147, 54, 0.8));
+    background: linear-gradient(135deg,
+            #004c39 0%,
+            #1d9336 30%,
+            #73c41d 70%,
+            #004c39 100%);
     border: 1px solid rgba(74, 222, 128, 0.4);
-    border-radius: 0.75rem;
+    border-radius: 2rem;
     color: #ffffff;
     font-weight: 600;
-    padding: 0.75rem 1.25rem;
+    padding: 1rem 2rem;
+    min-width: 200px;
+    width: auto;
     font-size: 0.875rem;
     position: relative;
     overflow: hidden;
@@ -869,7 +930,11 @@ body::before {
 }
 
 .mobile-cta-btn:hover {
-    background: linear-gradient(135deg, rgba(0, 76, 57, 1), rgba(29, 147, 54, 0.9));
+    background: linear-gradient(135deg,
+            #004c39 0%,
+            #1d9336 40%,
+            #73c41d 80%,
+            #004c39 100%);
     border-color: rgba(74, 222, 128, 0.6);
     transform: translateY(-2px) scale(1.05);
     box-shadow:
@@ -934,16 +999,6 @@ body::before {
 .glass-input::placeholder {
     color: var(--text-tertiary);
     font-weight: 400;
-}
-
-/* ===========================================
-   HERO SECTION GLASSMORPHISM
-   =========================================== */
-
-.glass-hero-overlay {
-    background: var(--bg-hero);
-    backdrop-filter: var(--blur-subtle);
-    -webkit-backdrop-filter: var(--blur-subtle);
 }
 
 /* ===========================================
@@ -1245,13 +1300,16 @@ body::before {
 
 /* Enhanced Button Variants */
 .btn-modern {
-    background: linear-gradient(135deg, var(--glass-tier2-bg), var(--glass-tier2-tint));
-    backdrop-filter: var(--blur-standard);
-    -webkit-backdrop-filter: var(--blur-standard);
-    border: var(--border-enhanced);
-    border-radius: var(--radius-lg);
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px) saturate(220%);
+    -webkit-backdrop-filter: blur(30px) saturate(220%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: var(--glass-shadow);
     color: var(--text-primary);
     padding: var(--space-md) var(--space-xl);
+    min-width: 200px;
+    width: auto;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -1259,23 +1317,57 @@ body::before {
     font-weight: 600;
     position: relative;
     overflow: hidden;
-    transition: var(--transition-apple);
+    transition: var(--transition);
     cursor: pointer;
     will-change: opacity, transform;
     transform: translate3d(0, 0, 0);
 }
 
 .btn-primary-modern {
-    background: linear-gradient(135deg, rgba(0, 76, 57, 0.9), rgba(29, 147, 54, 0.8));
+    background: linear-gradient(135deg,
+            #004c39 0%,
+            #1d9336 70%,
+            #004c39 100%);
     border: var(--border-primary);
     color: var(--brand-white);
     box-shadow: var(--shadow-primary-depth);
+    padding: var(--space-md) var(--space-xl);
+    min-width: 200px;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+    will-change: opacity, transform;
+    transform: translate3d(0, 0, 0);
 }
 
 .btn-outline-modern {
-    background: linear-gradient(135deg, var(--glass-tier1-bg), transparent);
-    border: 2px solid var(--brand-accent);
-    color: var(--brand-accent);
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px) saturate(220%);
+    -webkit-backdrop-filter: blur(30px) saturate(220%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: var(--glass-shadow);
+    color: var(--text-primary);
+    padding: var(--space-md) var(--space-xl);
+    min-width: 200px;
+    width: auto;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+    will-change: opacity, transform;
+    transform: translate3d(0, 0, 0);
 }
 
 .btn-modern:hover {
@@ -1292,9 +1384,8 @@ body::before {
 }
 
 .btn-outline-modern:hover {
-    background: linear-gradient(135deg, rgba(74, 222, 128, 0.15), rgba(0, 76, 57, 0.1));
-    color: var(--brand-white);
-    box-shadow: var(--shadow-accent-depth);
+    transform: translate3d(0, -3px, 0) scale(1.02);
+    transition: var(--transition-spring);
 }
 
 /* Glass Footer */
@@ -1473,7 +1564,7 @@ body::before {
     .glass-btn,
     .glass-form,
     .glass-input {
-        background: rgba(0, 76, 57, 0.1);
+        background: var(--glass-bg);
         border: 1px solid rgba(255, 255, 255, 0.2);
     }
 }
@@ -1560,24 +1651,6 @@ body::before {
     padding: var(--space-2xl);
 }
 
-/* ===========================================
-   CRITICAL STYLE OVERRIDES - FORCE DARK MODE
-   =========================================== */
-
-/* Force dark background on all elements that might override */
-html,
-body,
-#root,
-#app,
-.container,
-main,
-section,
-div,
-header,
-nav,
-footer {
-    background: transparent !important;
-}
 
 /* Ensure body maintains dark theme */
 body {
@@ -1598,19 +1671,6 @@ li {
     color: inherit !important;
 }
 
-/* Force dark theme on common elements */
-html,
-body,
-main,
-section,
-div,
-header,
-nav,
-footer,
-article {
-    background-color: transparent !important;
-}
-
 /* Glass backdrop force */
 .glass-card,
 .glass-tier1,
@@ -1618,16 +1678,6 @@ article {
 .glass-tier3 {
     backdrop-filter: var(--blur-standard) !important;
     -webkit-backdrop-filter: var(--blur-standard) !important;
-}
-
-/* Additional force for body background - ENHANCED DARK WITH SOPHISTICATED GREEN ACCENTS */
-body {
-    background: #0a0f14 !important;
-    background-image:
-        radial-gradient(ellipse 800px 500px at top left, rgba(0, 76, 57, 0.12) 0%, rgba(0, 76, 57, 0.04) 50%, transparent 80%),
-        radial-gradient(ellipse 600px 400px at bottom right, rgba(29, 147, 54, 0.10) 0%, rgba(29, 147, 54, 0.02) 60%, transparent 85%),
-        radial-gradient(ellipse 1000px 700px at center, rgba(0, 76, 57, 0.06) 0%, transparent 90%),
-        linear-gradient(135deg, #0a0f14 0%, #0f1419 20%, #1a222b 40%, #0f1419 60%, #151e26 80%, #0a0f14 100%) !important;
 }
 
 /* ===========================================
@@ -1640,9 +1690,7 @@ body {
         transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(var(--scroll-blur, 30px)) saturate(220%);
     -webkit-backdrop-filter: blur(var(--scroll-blur, 30px)) saturate(220%);
-    background: linear-gradient(135deg,
-            rgba(255, 255, 255, var(--scroll-opacity, 0.12)),
-            rgba(0, 76, 57, calc(var(--scroll-opacity, 0.08) * 0.8)));
+    background: rgba(0, 76, 57, 0.1);
     will-change: transform, backdrop-filter, background;
 }
 
@@ -1717,15 +1765,6 @@ body {
     animation-delay: 0.5s;
 }
 
-/* Enhanced glassmorphism overlays */
-.glass-hero-overlay {
-    background: linear-gradient(135deg,
-            rgba(0, 76, 57, 0.05) 0%,
-            rgba(0, 76, 57, 0.02) 50%,
-            transparent 100%);
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
-}
 
 /* Enhanced section backgrounds */
 .section-glass-bg {
