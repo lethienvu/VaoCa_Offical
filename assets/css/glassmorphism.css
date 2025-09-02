@@ -134,8 +134,8 @@ body::before {
     --glass-tier1-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
 
     /* Tier 2: Standard (10% opacity) */
-    --glass-tier2-bg: rgba(255, 255, 255, 0.1);
-    --glass-tier2-tint: rgba(0, 76, 57, 0.02);
+    --glass-tier2-bg: rgba(255, 255, 255, 0.3);
+    --glass-tier2-tint: rgba(255, 255, 255, 0.2);
     --glass-tier2-border: rgba(255, 255, 255, 0.12);
     --glass-tier2-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.15);
 
@@ -166,7 +166,7 @@ body::before {
     /* ===== MULTI-LAYERED SHADOW DEPTH ===== */
     --shadow-glass-depth1:
         0 2px 8px rgba(0, 0, 0, 0.1),
-        0 4px 16px rgba(0, 0, 0, 0.1),
+        0 4px 16px rgba(255, 255, 255, 0.1),
         0 8px 32px rgba(0, 0, 0, 0.1);
 
     --shadow-glass-depth2:
@@ -516,7 +516,7 @@ body::before {
    =========================================== */
 
 .glass-nav {
-    background: rgba(0, 76, 57, 0.1);
+    background: transparent;
     border-bottom: none;
     position: fixed !important;
     top: 0 !important;
@@ -533,7 +533,15 @@ body::before {
 }
 
 .glass-nav.scrolled {
-    background: rgba(0, 76, 57, 0.4);
+background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0.04) 50%,
+            rgba(255, 255, 255, 0.06) 100%);
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 4px 16px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 /* Force header to always be visible - override any hidden class */
@@ -627,8 +635,14 @@ body::before {
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(26, 26, 26, 0.98);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(255, 255, 255, 0.7) 50%,
+            rgba(255, 255, 255, 0.8) 100%);
+        backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transform: translateY(-100%);
     opacity: 0;
@@ -680,12 +694,23 @@ body::before {
    =========================================== */
 
 .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 76, 57, 0.3);
+background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(255, 255, 255, 0.06) 25%,
+            rgba(255, 255, 255, 0.09) 50%,
+            rgba(255, 255, 255, 0.05) 75%,
+            rgba(255, 255, 255, 0.12) 100%);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.3);
+        -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.3);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+            border-top-color: rgba(255, 255, 255, 0.25);
     border-radius: var(--radius-lg);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow:
+            0 12px 48px rgba(0, 0, 0, 0.5),
+            0 6px 24px rgba(0, 0, 0, 0.3),
+            0 3px 12px rgba(255, 255, 255, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.25),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     padding: var(--space-lg);
     position: relative;
     transition: all 0.3s ease;
@@ -821,7 +846,7 @@ body::before {
 /* Enhanced Outline Button */
 .glass-btn-outline {
     background: transparent;
-    border: 2px solid rgba(0, 76, 57, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     color: rgba(0, 76, 57, 0.9);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -839,10 +864,10 @@ body::before {
 /* Call-to-Action Button with Special Effects */
 .cta-btn-special {
     background: linear-gradient(135deg,
-            #1d9336 0%,
-            #73c41d 30%,
-            #a6ff00 70%,
-            #a6ff00 100%);
+            #a6ff00 0%,
+            #73c41d 25%,
+            #1d9336 50%,
+            #1d9336 70%);
     border: 2px solid transparent;
     background-clip: padding-box;
     border-radius: 2rem;
@@ -867,11 +892,6 @@ body::before {
     content: '';
     position: absolute;
     inset: -2px;
-    background: linear-gradient(45deg,
-            rgba(74, 222, 128, 0.8),
-            rgba(0, 76, 57, 0.6),
-            rgba(29, 147, 54, 0.8),
-            rgba(74, 222, 128, 0.8));
     border-radius: inherit;
     z-index: -1;
     background-size: 400% 400%;
@@ -1061,7 +1081,7 @@ body::before {
 
     .cta-btn-special {
         padding: 0.875rem 1.75rem;
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         border-radius: 0.875rem;
     }
 
@@ -1096,14 +1116,16 @@ body::before {
 
     /* Mobile-specific enhancements */
     .mobile-nav-menu {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(0, 76, 57, 0.12));
-        backdrop-filter: blur(30px) saturate(220%);
-        -webkit-backdrop-filter: blur(30px) saturate(220%);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
         border-radius: 1rem;
         box-shadow:
-            0 15px 45px rgba(0, 0, 0, 0.3),
-            0 8px 25px rgba(0, 76, 57, 0.2);
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                0 4px 16px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
         margin-top: 1rem;
         padding: 1rem;
         position: absolute;
@@ -1476,53 +1498,86 @@ body::before {
 }
 
 /* Highlight Effects for Hero Section */
-.vc-highlight {
+/* .vc-highlight {
     position: absolute;
     background: linear-gradient(135deg, var(--glass-tier2-bg), var(--glass-tier2-tint));
     backdrop-filter: var(--blur-subtle);
     -webkit-backdrop-filter: var(--blur-subtle);
     border: var(--border-enhanced);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     padding: var(--space-xs) var(--space-sm);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 500;
+    text-align: center;
     white-space: nowrap;
     animation: glassFadeIn 1s var(--ease-out-expo) both;
     will-change: opacity, transform;
+    box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.2),
+            0 4px 16px rgba(255, 255, 255, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+} */
+
+.vc-highlight {
+    position: absolute;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.18) 0%,
+            rgba(255, 255, 255, 0.12) 25%,
+            rgba(255, 255, 255, 0.15) 50%,
+            rgba(255, 255, 255, 0.10) 75%,
+            rgba(255, 255, 255, 0.20) 100%);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.1);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    animation: glassFadeIn 1s var(--ease-out-expo) both;
+    will-change: opacity, transform;
+    box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.4),
+            0 4px 16px rgba(0, 0, 0, 0.2),
+            0 2px 8px rgba(255, 255, 255, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .vc-highlight--top-left {
-    top: 10%;
-    left: -20%;
+    top: 0%;
+    left: -30%;
     animation-delay: 0.2s;
 }
 
 .vc-highlight--left {
-    top: 30%;
-    left: -25%;
+    top: 20%;
+    left: -45%;
     animation-delay: 0.4s;
 }
 
 .vc-highlight--bottom-left {
-    bottom: 20%;
-    left: -15%;
+    bottom: 50%;
+    left: -50%;
     animation-delay: 0.6s;
 }
 
 .vc-highlight--top-right {
     top: 5%;
-    right: -15%;
+    right: -60%;
     animation-delay: 0.3s;
 }
 
 .vc-highlight--right-mid {
     top: 40%;
-    right: -20%;
+    right: -60%;
     animation-delay: 0.5s;
 }
 
 .vc-highlight--right-bottom {
-    bottom: 15%;
+    bottom: -5%;
     right: -25%;
     animation-delay: 0.7s;
 }
