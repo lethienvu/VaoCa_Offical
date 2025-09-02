@@ -877,7 +877,7 @@ background: linear-gradient(135deg,
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem;
     min-width: 200px;
     width: auto;
     position: relative;
@@ -1080,7 +1080,7 @@ background: linear-gradient(135deg,
     }
 
     .cta-btn-special {
-        padding: 0.875rem 1.75rem;
+        padding: 0.875rem 1.5rem;
         font-size: 1.2rem;
         border-radius: 0.875rem;
     }
