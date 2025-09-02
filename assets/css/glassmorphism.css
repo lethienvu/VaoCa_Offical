@@ -2007,6 +2007,6 @@ li {
     .section-with-bg,
     .hero-bg-image {
         background-attachment: scroll;
-        background-size: cover;
+        background-size: 30%;
     }
 }
