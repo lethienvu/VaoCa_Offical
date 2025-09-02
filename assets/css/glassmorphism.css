@@ -712,6 +712,7 @@ background: linear-gradient(135deg,
             inset 0 1px 0 rgba(255, 255, 255, 0.25),
             inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     padding: var(--space-lg);
+    padding-top: 5rem;
     position: relative;
     transition: all 0.3s ease;
 }
@@ -1217,7 +1218,12 @@ background: linear-gradient(135deg,
 
 /* Enhanced Feature Cards */
 .feature-card-modern {
-    background: linear-gradient(135deg, var(--glass-tier2-bg), var(--glass-tier2-tint));
+    background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.18) 0%,
+                rgba(255, 255, 255, 0.12) 25%,
+                rgba(255, 255, 255, 0.15) 50%,
+                rgba(255, 255, 255, 0.10) 75%,
+                rgba(255, 255, 255, 0.20) 100%);
     backdrop-filter: var(--blur-standard);
     -webkit-backdrop-filter: var(--blur-standard);
     border: var(--border-enhanced);
@@ -1923,3 +1929,84 @@ li {
 /* ===========================================
    END GLASSMORPHISM DESIGN SYSTEM V2.0
    =========================================== */
+  
+
+ /* ===========================================
+   SECTION BACKGROUND IMAGE
+   =========================================== */
+
+/* Background image cho section cụ thể */
+.section-with-bg {
+    position: relative;
+    background-image: url('../images/VC_3D.png');
+    background-size: 30%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.section-with-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Content trong section cần có z-index cao hơn */
+.section-with-bg > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Alternative: Background image với opacity thấp hơn */
+.section-bg-subtle {
+    position: relative;
+    background-image: url('./assets/images/VC_3D.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Background image cho hero section */
+.hero-bg-image {
+    position: relative;
+    background-image: url('./assets/images/VC_3D.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.hero-bg-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(135deg, 
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.7) 50%,
+            rgba(0, 0, 0, 0.9) 100%
+        );
+    z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-with-bg,
+    .hero-bg-image {
+        background-attachment: scroll;
+        background-size: cover;
+    }
+}
