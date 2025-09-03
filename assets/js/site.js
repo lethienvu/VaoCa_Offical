@@ -435,10 +435,6 @@ document.querySelectorAll("form").forEach((f) => {
       const rootBg = getComputedStyle(document.documentElement)
         .getPropertyValue("--header-bg")
         .trim();
-      header.style.background =
-        rootBg && rootBg !== "none" ? rootBg : "rgba(255,255,255,0.2)";
-      // ensure a subtle backdrop filter for clarity
-      header.style.backdropFilter = "saturate(120%) blur(6px)";
       document.body.style.paddingTop = h + "px";
     } else {
       // restore 'relative' for the original layout when not sticky
